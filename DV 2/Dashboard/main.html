@@ -14,10 +14,15 @@
   <div class="app-shell">
     <aside class="sidebar">
       <div class="brand-block">
-        <div class="brand-icon">✈</div>
+        <div class="brand-icon">
+          <span class="brand-icon-ring"></span>
+          <span class="brand-plane">✈</span>
+        </div>
+
         <div class="brand-text">
           <p class="brand-overline">Tourism</p>
           <h2>Malaysia</h2>
+          <p class="brand-tagline">Truly Asia</p>
         </div>
       </div>
 
@@ -25,13 +30,30 @@
         <a href="#overview" class="side-link active">Overview</a>
         <a href="#trends" class="side-link">Trends</a>
         <a href="#destinations" class="side-link">Destinations</a>
-        <a href="#performance" class="side-link">Performance</a>
+        <a href="#states" class="side-link">States</a>
         <a href="#spending" class="side-link">Spending</a>
       </nav>
 
       <div class="sidebar-meta">
-        <p><strong>Sources</strong><br>Tourism Malaysia<br>DOSM</p>
-        <p><strong>Richie B. Linardi</strong><br>35953616<br>18 May 2026</p>
+        <p class="meta-block"><strong>Sources</strong></p>
+        <ul class="meta-list">
+          <li><a href="https://archive.data.gov.my/data/en_US/dataset/monthly-tourist-arrival" target="_blank" rel="noopener noreferrer">Monthly Tourist Arrival</a></li>
+          <li><a href="https://archive.data.gov.my/data/dataset/tourist-arrivals-into-malaysia-by-quarterly" target="_blank" rel="noopener noreferrer">Quarterly Tourist Arrivals</a></li>
+          <li><a href="https://archive.data.gov.my/data/en_US/dataset/malaysia-hotel-guest-international-by-state" target="_blank" rel="noopener noreferrer">International Hotel Guests by State</a></li>
+          <li><a href="https://archive.data.gov.my/data/en_US/dataset/malaysia-average-occupancy-rate-of-hotels" target="_blank" rel="noopener noreferrer">Average Occupancy Rate of Hotels</a></li>
+          <li><a href="https://archive.data.gov.my/data/en_US/dataset/malaysia-hotel-guest-domestic-by-state" target="_blank" rel="noopener noreferrer">Domestic Hotel Guests by State</a></li>
+          <li><a href="https://archive.data.gov.my/data/dataset/inbound-tourism-expenditure-of-tourist-by-products" target="_blank" rel="noopener noreferrer">Inbound Tourism Expenditure by Products</a></li>
+          <li><a href="https://data.humdata.org/dataset/geoboundaries-admin-boundaries-for-malaysia/resource/55b3dd6f-5786-4dce-b32f-5eca9bc8c16d" target="_blank" rel="noopener noreferrer">Malaysia ADM1 GeoJSON</a></li>
+        </ul>
+
+        <div class="sidebar-divider"></div>
+
+        <p class="meta-block">
+          <strong>Author</strong><br>
+          Richie B. Linardi<br>
+          35953616<br>
+          <span id="last-modified"></span>
+        </p>
       </div>
     </aside>
 
@@ -39,34 +61,41 @@
       <header class="hero-panel" id="overview">
         <div class="hero-copy">
           <p class="hero-kicker">FIT2179 · Data Visualisation 2</p>
-          <h1>Tourism in Malaysia</h1>
-          <h2>Trends, destinations and performance</h2>
+
+          <div class="hero-heading-group">
+            <h1>Tourism in Malaysia</h1>
+            <h2>Trends, destinations and performance</h2>
+          </div>
+
           <p class="hero-description">
-            Tourism changed sharply after 2020. This dashboard tracks recovery,
-            destinations, hotel performance, and spending patterns.
+            Tourism in Malaysia rose strongly before the pandemic, collapsed in 2020,
+            and recovered unevenly afterward across states, hotel performance, and spending patterns.
           </p>
         </div>
 
         <div class="kpi-grid">
           <div class="kpi-card">
-            <p class="kpi-label">Latest monthly arrivals</p>
-            <p class="kpi-value">1.59M</p>
-            <p class="kpi-meta">Mar 2023</p>
+            <p class="kpi-label">Peak annual arrivals</p>
+            <p class="kpi-value">26.8M</p>
+            <p class="kpi-meta">2016 recorded the highest full-year arrivals</p>
           </div>
+
           <div class="kpi-card">
-            <p class="kpi-label">Latest quarterly arrivals</p>
-            <p class="kpi-value">4.39M</p>
-            <p class="kpi-meta">Q1 2023</p>
+            <p class="kpi-label">2022 recovery level</p>
+            <p class="kpi-value">38.6%</p>
+            <p class="kpi-meta">of 2019 arrival volume returned</p>
           </div>
+
           <div class="kpi-card">
-            <p class="kpi-label">Top state</p>
+            <p class="kpi-label">Top state by international guests</p>
             <p class="kpi-value">Kuala Lumpur</p>
-            <p class="kpi-meta">Guests, 2022</p>
+            <p class="kpi-meta">4.28M hotel guests in 2022</p>
           </div>
+
           <div class="kpi-card">
-            <p class="kpi-label">Highest occupancy</p>
+            <p class="kpi-label">Highest occupancy rate</p>
             <p class="kpi-value">Sarawak</p>
-            <p class="kpi-meta">57.4%, 2022</p>
+            <p class="kpi-meta">57.4% hotel occupancy in 2022</p>
           </div>
         </div>
       </header>
@@ -76,38 +105,49 @@
           <span class="section-number">1</span>
           <div>
             <p class="section-kicker">Tourism into Malaysia</p>
-            <h3>How visitor demand changes over time</h3>
+            <h3>How visitor demand changed across time</h3>
           </div>
         </div>
 
-        <div class="grid grid-3">
-          <article class="chart-card span-2">
+        <div class="grid grid-2">
+          <article class="chart-card">
             <h4>Monthly Tourist Arrivals</h4>
             <p class="chart-note">
-              Shows growth,<br>
-              collapse,<br>
-              then recovery.
+              This chart shows the full tourism story: growth before 2020,
+              collapse during the pandemic, and gradual recovery afterward.
             </p>
+            <div class="chart-insight">
+              <strong>Why it matters:</strong>
+              This is the clearest chart for understanding the tourism shock.
+            </div>
             <div id="chart-monthly-arrivals"></div>
           </article>
 
           <article class="chart-card">
-            <h4>Quarterly Tourist Arrivals</h4>
+            <h4>Recovery Index by Quarter</h4>
             <p class="chart-note">
-              Long-run pattern<br>
-              from 2000<br>
-              to 2023.
+              This chart compares each quarter against the 2019 average.
+              Values below 100 remain under the pre-pandemic benchmark.
             </p>
-            <div id="chart-quarterly-arrivals"></div>
+            <div class="chart-insight">
+              <strong>Why it matters:</strong>
+              It shows recovery progress more clearly than raw totals alone.
+            </div>
+            <div id="chart-recovery-index"></div>
           </article>
+        </div>
 
-          <article class="chart-card span-3">
-            <h4>Monthly Arrival Intensity by Year</h4>
+        <div class="grid grid-1">
+          <article class="chart-card">
+            <h4>Pre-COVID Monthly Arrival Intensity</h4>
             <p class="chart-note">
-              Reveals seasonality,<br>
-              disruption,<br>
-              and recovery.
+              This chart removes the COVID years to reveal the normal seasonal
+              pattern of tourism demand before the disruption.
             </p>
+            <div class="chart-insight">
+              <strong>Why it matters:</strong>
+              It shows which months were typically stronger before the shock.
+            </div>
             <div id="chart-seasonality-heatmap"></div>
           </article>
         </div>
@@ -122,86 +162,84 @@
           </div>
         </div>
 
-        <div class="grid grid-3">
-          <article class="chart-card span-2">
-            <h4>International Hotel Guests by State Map</h4>
-            <p class="chart-note">
-              Required geographic map.<br>
-              Uses state data<br>
-              for 2022.
-            </p>
-            <div id="chart-state-map"></div>
-          </article>
-
-          <article class="chart-card">
-            <h4>Top States by International Guests</h4>
-            <p class="chart-note">
-              Ranks leading states<br>
-              by hotel guest<br>
-              volume.
-            </p>
-            <div id="chart-top-states"></div>
-          </article>
-
-          <article class="chart-card span-3">
-            <h4>Selected State Trends in International Guests</h4>
-            <p class="chart-note">
-              Compares strong states<br>
-              across available years.
-            </p>
-            <div id="chart-state-trends"></div>
-          </article>
-        </div>
-      </section>
-
-      <section class="dashboard-section" id="performance">
-        <div class="section-banner teal">
-          <span class="section-number">3</span>
-          <div>
-            <p class="section-kicker">Which states perform better</p>
-            <h3>Demand, occupancy, and guest composition</h3>
-          </div>
-        </div>
-
         <div class="grid grid-2">
           <article class="chart-card">
-            <h4>International Hotel Guests by State</h4>
+            <h4>International Hotel Guests by State Map</h4>
             <p class="chart-note">
-              Standalone state chart.<br>
-              Same 2022 data<br>
-              as the map.
+              This map shows where international hotel demand was strongest
+              in the latest complete state-level year available.
             </p>
-            <div id="chart-international-state-bar"></div>
+            <div class="chart-insight">
+              <strong>Why it matters:</strong>
+              Geography reveals which states concentrated tourism demand.
+            </div>
+            <div id="chart-state-map"></div>
           </article>
 
           <article class="chart-card">
             <h4>Hotel Occupancy Rate by State</h4>
             <p class="chart-note">
-              Shows which states<br>
-              use hotel capacity<br>
-              more strongly.
+              This chart shows hotel utilisation, which is different from guest volume.
+              A state can attract fewer guests but still use rooms efficiently.
             </p>
-            <div id="chart-occupancy"></div>
+            <div class="chart-insight">
+              <strong>Why it matters:</strong>
+              Occupancy shows efficiency, not only popularity.
+            </div>
+            <div id="chart-occupancy-state"></div>
           </article>
+        </div>
 
+        <div class="grid grid-1">
           <article class="chart-card">
-            <h4>Domestic vs International Guests</h4>
+            <h4>Guest Volume vs Occupancy Rate</h4>
             <p class="chart-note">
-              Uses the available<br>
-              guest-mix table<br>
-              for 2017.
+              This chart separates high-volume states from high-efficiency states.
+              The upper-right area represents stronger performance on both measures.
             </p>
+            <div class="chart-insight">
+              <strong>Why it matters:</strong>
+              States in the upper-right combine demand and strong hotel utilisation.
+            </div>
+            <div id="chart-guests-vs-occupancy"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="dashboard-section" id="states">
+        <div class="section-banner teal">
+          <span class="section-number">3</span>
+          <div>
+            <p class="section-kicker">How states differ</p>
+            <h3>Composition and change across available years</h3>
+          </div>
+        </div>
+
+        <div class="grid grid-2">
+          <article class="chart-card">
+            <h4>Domestic vs International Guest Share</h4>
+            <p class="chart-note">
+              This chart shows whether a state depends more on domestic travellers
+              or international visitors in the latest available guest-mix year.
+            </p>
+            <div class="chart-insight">
+              <strong>Why it matters:</strong>
+              A more balanced split suggests broader tourism demand.
+            </div>
             <div id="chart-guest-mix"></div>
           </article>
 
           <article class="chart-card">
-            <h4>Guest Volume vs Occupancy Rate</h4>
+            <h4>Change in International Hotel Guests</h4>
             <p class="chart-note">
-              Tests whether more guests<br>
-              align with stronger<br>
-              occupancy.
+              This chart compares 2015 and 2022 directly,
+              showing which states gained international hotel demand over time.
             </p>
-            <div id="chart-guests-vs-occupancy"></div>
+            <div class="chart-insight">
+              <strong>Why it matters:</strong>
+              It highlights which states improved most across the period.
+            </div>
+            <div id="chart-state-change-bars"></div>
           </article>
         </div>
       </section>
@@ -211,70 +249,64 @@
           <span class="section-number">4</span>
           <div>
             <p class="section-kicker">How tourists spend</p>
-            <h3>Tourism expenditure by product category</h3>
+            <h3>Tourism value by product category</h3>
           </div>
         </div>
 
-        <div class="grid grid-3">
-          <article class="chart-card span-2">
+        <div class="grid grid-2">
+          <article class="chart-card">
             <h4>Expenditure by Product Over Time</h4>
             <p class="chart-note">
-              Shows how product categories<br>
-              build total tourism<br>
-              expenditure.
+              This chart shows how different product categories contributed
+              to total tourism expenditure across the full period.
             </p>
+            <div class="chart-insight">
+              <strong>Why it matters:</strong>
+              Tourism value comes from multiple product groups, not one.
+            </div>
             <div id="chart-expenditure-area"></div>
           </article>
 
           <article class="chart-card">
-            <h4>Expenditure Share in 2020</h4>
+            <h4>Product Share Change: 2000 vs 2020</h4>
             <p class="chart-note">
-              Highlights distribution<br>
-              in the latest<br>
-              cleaned year.
+              This chart compares long-term structural change by showing
+              which product groups became more or less important over time.
             </p>
-            <div id="chart-expenditure-share"></div>
-          </article>
-
-          <article class="chart-card span-3">
-            <h4>Latest-Year Product Comparison</h4>
-            <p class="chart-note">
-              Direct comparison<br>
-              of 2020 spending<br>
-              categories.
-            </p>
-            <div id="chart-expenditure-latest"></div>
+            <div class="chart-insight">
+              <strong>Why it matters:</strong>
+              It shows how tourism value shifted structurally across years.
+            </div>
+            <div id="chart-expenditure-share-change"></div>
           </article>
         </div>
       </section>
 
+      <section class="dashboard-section" id="spending">
+        <div class="section-banner gold">
+          <span class="section-number">5</span>
+          <div>
+            <p class="section-kicker">Key Takeaways</p>
+            <h3>Summary key points of dashboard</h3>
+          </div>
+        </div>
+
       <section class="takeaway-strip">
         <div class="takeaway-card">
-          <h5>Recovery matters</h5>
-          <p>
-            Tourism demand fell hard<br>
-            in 2020, then climbed back.
-          </p>
+          <h5>Recovery</h5>
+          <p>Tourism demand dropped sharply, then recovered gradually over time.</p>
         </div>
         <div class="takeaway-card">
-          <h5>Place matters</h5>
-          <p>
-            State performance differs<br>
-            across guest volume and occupancy.
-          </p>
+          <h5>Geography</h5>
+          <p>Tourism demand differs clearly across Malaysian states.</p>
         </div>
         <div class="takeaway-card">
-          <h5>Spending matters</h5>
-          <p>
-            Tourism value comes from<br>
-            several products, not one.
-          </p>
+          <h5>Performance</h5>
+          <p>Guest volume and occupancy do not always move together.</p>
         </div>
         <div class="takeaway-card">
-          <h5>Map matters</h5>
-          <p>
-            Geography helps reveal which states attract stronger demand.
-          </p>
+          <h5>Value</h5>
+          <p>Tourism value comes from several product groups.</p>
         </div>
       </section>
     </main>
