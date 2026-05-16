@@ -35,7 +35,7 @@ body {
 
 .app-shell {
   display: grid;
-  grid-template-columns: 250px 1fr;
+  grid-template-columns: 245px 1fr;
   min-height: 100vh;
 }
 
@@ -69,9 +69,17 @@ body {
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
 }
 
+.brand-text h2,
+.hero-panel h1,
+.hero-panel h2,
+.section-banner h3,
+.chart-card h4,
+.takeaway-card h5 {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
 .brand-text h2 {
   margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
   font-size: 1.55rem;
   line-height: 1;
 }
@@ -111,18 +119,18 @@ body {
   padding-top: 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   font-size: 0.88rem;
-  line-height: 1.5;
+  line-height: 1.6;
   color: #d8e3fb;
 }
 
 .content {
-  padding: 28px 28px 50px;
+  padding: 28px 32px 50px;
+  max-width: 1700px;
 }
 
 .hero-panel,
 .chart-card,
-.insight-card,
-.page-footer {
+.takeaway-card {
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 18px;
@@ -130,11 +138,18 @@ body {
 }
 
 .hero-panel {
-  padding: 28px;
+  padding: 30px 32px;
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: 24px;
+  grid-template-columns: minmax(520px, 1.35fr) minmax(360px, 0.95fr);
+  gap: 28px;
   margin-bottom: 24px;
+  align-items: start;
+}
+
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .hero-kicker {
@@ -148,30 +163,32 @@ body {
 
 .hero-panel h1 {
   margin: 0 0 8px;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(2.5rem, 4vw, 4rem);
+  font-size: clamp(2.7rem, 4vw, 3.9rem);
   line-height: 0.98;
+  max-width: 12ch;
 }
 
 .hero-panel h2 {
   margin: 0 0 16px;
-  font-family: Georgia, "Times New Roman", serif;
   font-size: 1.55rem;
   color: var(--blue);
+  line-height: 1.08;
+  max-width: 18ch;
 }
 
 .hero-description {
   margin: 0;
-  max-width: 760px;
   color: var(--muted);
   line-height: 1.7;
   font-size: 1rem;
+  max-width: 30ch;
 }
 
 .kpi-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
+  align-content: start;
 }
 
 .kpi-card {
@@ -179,6 +196,10 @@ body {
   border-radius: 16px;
   padding: 18px 16px;
   background: #fbfcfe;
+  min-height: 128px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .kpi-label {
@@ -244,8 +265,7 @@ body {
 
 .section-banner h3 {
   margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.3rem;
+  font-size: 1.34rem;
   line-height: 1.15;
 }
 
@@ -254,65 +274,62 @@ body {
   gap: 16px;
 }
 
+.grid-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .grid-3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.grid-4 {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+.span-2 {
+  grid-column: span 2;
+}
+
+.span-3 {
+  grid-column: span 3;
 }
 
 .chart-card {
-  padding: 18px;
+  padding: 20px;
   min-height: 100%;
 }
 
 .chart-card h4 {
   margin: 0 0 8px;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.1rem;
-  line-height: 1.25;
+  font-size: 1.18rem;
+  line-height: 1.18;
 }
 
 .chart-note {
   margin: 0 0 14px;
   color: var(--muted);
-  font-size: 0.93rem;
-  line-height: 1.55;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 28ch;
 }
 
-.insight-strip {
+.takeaway-strip {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
-  margin-bottom: 24px;
 }
 
-.insight-card {
+.takeaway-card {
   padding: 18px;
 }
 
-.insight-card h5 {
+.takeaway-card h5 {
   margin: 0 0 8px;
-  font-family: Georgia, "Times New Roman", serif;
   font-size: 1rem;
 }
 
-.insight-card p {
+.takeaway-card p {
   margin: 0;
   color: var(--muted);
-  line-height: 1.6;
+  line-height: 1.65;
   font-size: 0.94rem;
-}
-
-.page-footer {
-  padding: 16px 20px;
-}
-
-.page-footer p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.92rem;
+  max-width: 26ch;
 }
 
 #chart-monthly-arrivals,
@@ -329,12 +346,21 @@ body {
 #chart-expenditure-share,
 #chart-expenditure-latest {
   width: 100%;
-  min-height: 300px;
 }
 
-#chart-state-map {
-  min-height: 360px;
-}
+#chart-monthly-arrivals { min-height: 380px; }
+#chart-quarterly-arrivals { min-height: 380px; }
+#chart-seasonality-heatmap { min-height: 320px; }
+#chart-state-map { min-height: 460px; }
+#chart-top-states { min-height: 460px; }
+#chart-state-trends { min-height: 360px; }
+#chart-international-state-bar,
+#chart-guest-mix,
+#chart-occupancy,
+#chart-guests-vs-occupancy { min-height: 360px; }
+#chart-expenditure-area { min-height: 360px; }
+#chart-expenditure-share,
+#chart-expenditure-latest { min-height: 340px; }
 
 .error-box {
   padding: 16px;
@@ -347,7 +373,15 @@ body {
 }
 
 @media (max-width: 1280px) {
-  .grid-4 {
+  .grid-3 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .span-3 {
+    grid-column: span 2;
+  }
+
+  .takeaway-strip {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -366,9 +400,23 @@ body {
     grid-template-columns: 1fr;
   }
 
+  .grid-2,
   .grid-3,
-  .insight-strip {
+  .takeaway-strip {
     grid-template-columns: 1fr;
+  }
+
+  .span-2,
+  .span-3 {
+    grid-column: span 1;
+  }
+
+  .hero-panel h1,
+  .hero-panel h2,
+  .hero-description,
+  .chart-note,
+  .takeaway-card p {
+    max-width: none;
   }
 }
 
@@ -377,19 +425,17 @@ body {
     padding: 18px;
   }
 
-  .kpi-grid,
-  .grid-4 {
+  .kpi-grid {
     grid-template-columns: 1fr;
   }
 
   .hero-panel,
   .chart-card,
-  .insight-card,
-  .page-footer {
+  .takeaway-card {
     border-radius: 14px;
   }
 
   .hero-panel h1 {
-    font-size: 2.2rem;
+    font-size: 2.3rem;
   }
 }
